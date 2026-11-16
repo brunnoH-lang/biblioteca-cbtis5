@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Escolar CBTis No. 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="top-bar">
+            <p><i class="fa-solid fa-graduation-cap"></i> CBTis No. 5 — Acervo Bibliográfico y Consulta Digital</p>
+            <p class="horario"><i class="fa-solid fa-clock"></i> Horario de Atención: Lunes a Viernes 8:00 AM - 6:00 PM</p>
+        </div>
+
+        <div class="main-header">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div>
+                    <span>Biblioteca <strong>CBTis No. 5</strong></span>
+                    <span class="sub">Centro de Bachillerato Tecnológico industrial y de servicios</span>
+                </div>
+            </a>
+
+            <div class="search-box">
+                <input type="text" id="input-buscar" placeholder="Buscar por libro, autor, estante o especialidad...">
+                <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="cart-wrapper">
+                <button id="btn-cart-toggle" class="cart-btn" aria-label="Ver libros apartados">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+
+                <!-- Menú desplegable -->
+                <div class="cart-dropdown" id="cart-dropdown">
+                    <div class="cart-header">
+                        <h3><i class="fa-solid fa-book"></i> Solicitud de Préstamo</h3>
+                        <button id="btn-close-cart" class="close-btn">&times;</button>
+                    </div>
+
+                    <div class="cart-body" id="cart-items-container">
+                        <p class="empty-cart-msg">No has seleccionado ningún libro.</p>
+                    </div>
+
+                    <div class="cart-footer">
+                        <div class="cart-total-row total">
+                            <span>Total seleccionados:</span>
+                            <span id="cart-total-qty">0</span>
+                        </div>
+
+                        <button id="btn-checkout" class="btn-checkout">
+                            <i class="fa-brands fa-whatsapp"></i> Solicitar por WhatsApp
+                        </button>
+                        <button id="btn-clear-cart" class="btn-clear">Limpiar Selección</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="#" class="nav-link active" data-shelf="todas">Todos los Estantes</a></li>
+                <li><a href="#" class="nav-link" data-shelf="Estante 1">Estante 1: Programación / Contabilidad</a></li>
+                <li><a href="#" class="nav-link" data-shelf="Estante 2">Estante 2: Electromecánica / Biología</a></li>
+                <li><a href="#" class="nav-link" data-shelf="Estante 3">Estante 3: Químico / Literatura</a></li>
+                <li><a href="#" class="nav-link" data-shelf="Estante 4">Estante 4: Cs. Sociales / Filosofía</a></li>
+                <li><a href="#" class="nav-link" data-shelf="Estante 5">Estante 5: Exactas / Física</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Catálogo Digital de Libros — CBTis No. 5</h1>
+            <p>Lee muestras digitales, consulta por estante o aparta tu ejemplar físico para estudio en sala y préstamo a domicilio.</p>
+            <div class="hero-features">
+                <span><i class="fa-solid fa-eye"></i> Lectura instantánea en pantalla</span>
+                <span><i class="fa-solid fa-circle-check"></i> Préstamo de 15 días con credencial</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="section-title">
+            <h2 id="category-title">Acervo de Libros</h2>
+            <p id="product-count">Cargando libros del acervo...</p>
+        </div>
+
+        <div class="products-grid" id="products-grid"></div>
+    </main>
+
+    <div class="modal-overlay" id="modal-reader">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Título del Libro</h3>
+                <button class="modal-close" id="btn-close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="reader-meta">
+                    <span id="modal-author"><i class="fa-solid fa-user-pen"></i> Autor</span>
+                    <span id="modal-shelf"><i class="fa-solid fa-layer-group"></i> Ubicación</span>
+                </div>
+                <div class="reader-text" id="modal-text">
+                    Cargando texto...
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-close" id="btn-footer-close">Cerrar Lectura</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="info-banner">
+        <div class="info-card">
+            <i class="fa-solid fa-book-atlas"></i>
+            <h3>Acervo Físico Organizativo</h3>
+            <p>Clasificado minuciosamente por estantes y lonas de áreas técnicas y bachillerato.</p>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Especialidades Técnicas</h3>
+            <p>Materiales para Programación, Electromecánica, Laboratorista Químico y Ofimática.</p>
+        </div>
+        <div class="info-card">
+            <i class="fa-solid fa-id-card"></i>
+            <h3>Préstamos Escolares</h3>
+            <p>Presenta tu credencial vigente del CBTis No. 5 para retirar hasta 3 ejemplares.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Biblioteca CBTis No. 5</h3>
+                <p>Centro de Bachillerato Tecnológico industrial y de servicios No. 5.</p>
+                <p>Servicios bibliotecarios y acervo de apoyo para estudiantes técnicos.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto y Préstamos</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Plantel CBTis No. 5 — Edificio de Biblioteca</p>
+                <p><i class="fa-solid fa-phone"></i> Tel: (555) 012-3456</p>
+                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp Biblioteca: (52) 15554567890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Áreas Técnicas</h3>
+                <p>• Programación u Ofimática</p>
+                <p>• Electromecánica</p>
+                <p>• Laboratorista Químico</p>
+                <p>• Contabilidad</p>
+            </div>
+        </div>  
+        <div class="footer-bottom">
+            <p>&copy; 2026 Biblioteca Escolar CBTis No. 5 — Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
